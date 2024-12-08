@@ -2,6 +2,7 @@ package com.mybank.loan_management;
 
 import com.mybank.loan_management.dto.LoanRequest;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
 
     @PostMapping
-    public String createLoan(LoanRequest loanRequest) {
-        return "Hello, World";
+    public String createLoan(@RequestBody LoanRequest loanRequest) {
+        return String.format("Hello %s", loanRequest.getFullName());
     }
 }

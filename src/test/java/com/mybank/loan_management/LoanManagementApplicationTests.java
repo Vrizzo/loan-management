@@ -12,7 +12,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+
+import java.math.BigDecimal;
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -30,10 +31,16 @@ class LoanManagementApplicationTests {
 
     @Test
     void whenWeAskForALoanWeGetOk() {
+        LoanRequest loanRequest = new LoanRequest(new BigDecimal(100), 15, "Paul Gilbert", "939394003");
+
+        HttpEntity<Object> request = getHttpEntityRequest(loanRequest);
+
+        assertThat(this.restTemplate.postForObject("http://localhost:" + port + "/api/v1/loan", request, String.class)).contains("Hello Paul Gilbert");
+    }
+
+    private static HttpEntity<Object> getHttpEntityRequest(Object loanRequest) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<LoanRequest> request =
-                new HttpEntity<>(new LoanRequest(), headers);
-        assertThat(this.restTemplate.postForObject("http://localhost:" + port + "/api/v1/loan", request.toString(), String.class)).contains("Hello, World");
+        return new HttpEntity<>(loanRequest, headers);
     }
 }
