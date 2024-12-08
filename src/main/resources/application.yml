@@ -1,0 +1,6 @@
+spring:
+  application:
+    name=loan-management:
+  mvc:
+    converters:
+      preferred-json: jackson
