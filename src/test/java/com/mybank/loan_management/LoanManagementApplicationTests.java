@@ -36,6 +36,8 @@ class LoanManagementApplicationTests {
         HttpEntity<Object> request = getHttpEntityRequest(loanRequest);
 
         assertThat(this.restTemplate.postForObject("http://localhost:" + port + "/api/v1/loan", request, String.class)).contains("Hello Paul Gilbert");
+        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/api/v1/loan/" + loanRequest.getPersonalId(), String.class)).contains("1 Loan by Paul Gilbert");
+
     }
 
     private static HttpEntity<Object> getHttpEntityRequest(Object loanRequest) {
