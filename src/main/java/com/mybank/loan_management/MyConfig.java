@@ -3,6 +3,7 @@ package com.mybank.loan_management;
 import com.mybank.loan_management.core.features.CreateLoan;
 import com.mybank.loan_management.core.model.Loan;
 import com.mybank.loan_management.core.repository.LoanRepository;
+import com.mybank.loan_management.core.services.RatePlanCalculator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,7 +13,7 @@ import java.util.HashMap;
 public class MyConfig {
     @Bean
     public CreateLoan createLoan(LoanRepository loanRepository) {
-        return new CreateLoan(loanRepository);
+        return new CreateLoan(loanRepository, new RatePlanCalculator(5));
     }
 
     @Bean

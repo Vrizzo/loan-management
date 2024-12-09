@@ -4,6 +4,7 @@ import com.mybank.loan_management.core.features.CreateLoan;
 import com.mybank.loan_management.core.model.Loan;
 import com.mybank.loan_management.core.repository.LoanRepository;
 import com.mybank.loan_management.dto.LoanRequest;
+import com.mybank.loan_management.dto.LoanResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,10 +19,8 @@ public class Controller {
     private LoanRepository loanRepository;
 
     @PostMapping
-    public String createLoan(@RequestBody LoanRequest loanRequest) {
-
-        createLoan.crate(loanRequest);
-        return String.format("Hello %s", loanRequest.getFullName());
+    public LoanResponse createLoan(@RequestBody LoanRequest loanRequest) {
+        return createLoan.crate(loanRequest);
     }
 
     @GetMapping("/{personalId}")
