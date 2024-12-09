@@ -1,7 +1,7 @@
 package com.mybank.loan_management.core.features;
 
 
-import com.mybank.loan_management.core.model.Loan.Loan;
+import com.mybank.loan_management.core.model.Loan;
 import com.mybank.loan_management.core.repository.LoanRepository;
 import com.mybank.loan_management.dto.LoanRequest;
 import org.hamcrest.core.Is;

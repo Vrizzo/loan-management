@@ -1,7 +1,7 @@
 package com.mybank.loan_management;
 
 import com.mybank.loan_management.core.features.CreateLoan;
-import com.mybank.loan_management.core.model.Loan.Loan;
+import com.mybank.loan_management.core.model.Loan;
 import com.mybank.loan_management.core.repository.LoanRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

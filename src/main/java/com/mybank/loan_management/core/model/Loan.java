@@ -1,4 +1,4 @@
-package com.mybank.loan_management.core.model.Loan;
+package com.mybank.loan_management.core.model;
 
 import java.math.BigDecimal;
 
